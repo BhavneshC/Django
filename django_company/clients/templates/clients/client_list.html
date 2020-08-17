@@ -1,0 +1,8 @@
+{% extends "users/base.html" %}
+{% block content %}
+    {% for client in clients %}
+            <div class="card card-body mb-3">
+                <h2>Client Name : <a class="mr-2" href="{% url 'client-detail' client.pk %}">{{ client.client_name }}</a></h2>
+            </div>
+    {% endfor %}
+{% endblock content %}

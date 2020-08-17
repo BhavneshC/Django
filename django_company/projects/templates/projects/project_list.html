@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+{% block content %}
+    {% if user.is_superuser %}
+       {% for project in projects %}
+            <div class="card card-body mb-3">
+                <h2>Project Name : <a class="mr-2" href="{% url 'project-detail' project.id %}">{{ project.project_name }}</a></h2>
+                <small class="text-muted">Created at : {{ project.created_at|date:"F d, Y" }}</small>
+                <p>Created By : {{ project.created_by }}</p>           
+            </div>        
+        {% endfor %} 
+    {% endif %}
+    
+    {% for project in projects_list %}
+        <div class="card card-body mb-3">
+            <h2>Project Name : <a class="mr-2" href="{% url 'project-detail' project.id %}">{{ project.project_name }}</a></h2>
+            <small class="text-muted">Created at : {{ project.created_at|date:"F d, Y" }}</small>
+            <p>Created By : {{ project.created_by }}</p>           
+        </div>        
+    {% endfor %}
+{% endblock content %}

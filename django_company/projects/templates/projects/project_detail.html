@@ -1,0 +1,10 @@
+{% extends "users/base.html" %}
+{% block content %}
+      <div class="card card-body ">
+          <h2>Project Name : {{ object.project_name }}</h2>
+          <h5>Client Name : {{ object.client_name }}</h5>
+          <small class="text-muted">Created at : {{ object.created_at|date:"F d, Y" }}</small>
+          <p>Created By : {{ object.created_by }}</p>      
+          <p>Assigned Users : {% for assigned_users in object.assigned_users.all %}{{ assigned_users }} {% endfor %}</p>          
+    </div>
+{% endblock content %}
